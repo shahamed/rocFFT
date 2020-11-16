@@ -23,8 +23,6 @@
 #ifndef __HIPFFT_H__
 #define __HIPFFT_H__
 
-#warning The hipFFT version included in rocFFT is deprecated.  Please use hipFFT from the hipFFT package/repository instead.
-
 #include <hip/hip_complex.h>
 #include <hip/hip_runtime_api.h>
 
