@@ -29,7 +29,7 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
 - Fixed potential crashes in 3D transforms with unusual strides, for
   SBCC-optimized sizes.
 
-## [(Unreleased) rocFFT 1.0.11 for ROCm 4.2.0]
+## [rocFFT 1.0.11 for ROCm 4.2.0]
 
 ### Changed
   Move device code into main library.
