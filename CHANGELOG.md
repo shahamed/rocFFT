@@ -2,13 +2,13 @@
 
 Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://rocfft.readthedocs.io/en/latest/).
 
-## [(Unreleased) rocFFT 1.0.14 for ROCm 4.5.0]
+## [(Unreleased) rocFFT 1.0.14]
 
 ### Added
 
 - Added support for Windows 10 as a build target.
 
-## [(Unreleased) rocFFT 1.0.13 for ROCm 4.4.0]
+## [rocFFT 1.0.13 for ROCm 4.4.0]
 
 ### Optimizations
 - Improved many plans by removing unnecessary transpose steps.
