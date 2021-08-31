@@ -113,8 +113,6 @@ set( BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
 set( LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR} )
 set( INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR} )
 
-option(ROCFFT_RUNTIME_COMPILE "Enable runtime compilation of kernels" ON)
-
 if( ROCFFT_RUNTIME_COMPILE )
   # look for python development files - we also require an interpreter
   # but the version of it needn't match the development version.
@@ -137,10 +135,10 @@ add_subdirectory( src )
 # Package specific CPACK vars
 string( TOLOWER "${HIP_RUNTIME}" HIP_RUNTIME_LOWER )
 if( HIP_RUNTIME_LOWER STREQUAL "rocclr" )
-  set( CPACK_DEBIAN_PACKAGE_DEPENDS "hip-rocclr (>= 3.5.0), libpython${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}" )
+  set( CPACK_DEBIAN_PACKAGE_DEPENDS "hip-rocclr (>= 3.5.0)" )
   set( CPACK_RPM_PACKAGE_REQUIRES "hip-rocclr >= 3.5.0" )
 elseif( HIP_RUNTIME STREQUAL "cuda" )
-  set(CPACK_DEBIAN_PACKAGE_DEPENDS "hip-nvcc (>= 3.5.0), libpython${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}")
+  set(CPACK_DEBIAN_PACKAGE_DEPENDS "hip-nvcc (>= 3.5.0)")
   set(CPACK_RPM_PACKAGE_REQUIRES "hip-nvcc >= 3.5.0")
 endif( )
 set( CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/../LICENSE.md" )
