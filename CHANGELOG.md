@@ -1,8 +1,8 @@
 # Change Log for rocFFT
 
-Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://rocfft.readthedocs.io/en/latest/).
+Full documentation for rocFFT is available at rocfft.readthedocs.io(https://rocfft.readthedocs.io/en/latest/).
 
-## (Unreleased) rocFFT 1.0.15
+## rocFFT 1.0.15 ROCm 4.5.0
 
 ### Changed
 - Re-aligned split device library into 4 roughly equal libraries.
@@ -11,34 +11,12 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
   is no longer performed by each node. We designed a generic algorithm to
   test and pick the best assignment path.
   - With the help of FuseShim, we can achieve more kernel-fusions as possible.
-
+- Packaging split into a runtime package called rocfft and a development package called rocfft-devel. The development package depends on runtime. The runtime package suggests the development package for all supported OSes except CentOS 7 to aid in the transition. The suggests feature in packaging is introduced as a deprecated feature and will be removed in a future rocm release.
 ### Optimizations
 - Optimized twiddle-conjugation; complex-to-complex inverse transforms should have similar performance to foward transforms now.
 - Improved performance of single-kernel small 2D transforms.
-
-## (Unreleased) rocFFT 1.0.14
-
-### Optimizations
 - Optimized SBCC kernels of length 52, 60, 72, 80, 84, 96, 104, 108, 112, 160,
   168, 208, 216, 224, 240 with new kernel generator.
-
-### Added
-- Added support for Windows 10 as a build target.
-
-### Changed
-- Packaging split into a runtime package called rocfft and a development package called rocfft-devel. The development package depends on runtime. The runtime package suggests the development package for all supported OSes except CentOS 7 to aid in the transition. The suggests feature in packaging is introduced as a deprecated feature and will be removed in a future rocm release.
-
-### Fixed
-- Fixed a few validation failures of even-length R2C inplace. 2D, 3D cubics sizes such as
-  100^2 (or ^3), 200^2 (or ^3), 256^2 (or ^3)...etc. We don't combine the three kernels
-  (stockham-r2c-transpose). We only combine two kernels (r2c-transpose) instead.
-
-### Changed
-- Split 2D device code into separate libraries.
-
-## [(Unreleased) rocFFT 1.0.13 for ROCm 4.4.0]
-
-### Optimizations
 - Improved many plans by removing unnecessary transpose steps.
 - Optimized scheme selection for 3D problems.
   - Imposed less restrictions on 3D_BLOCK_RC selection. More problems can use 3D_BLOCK_RC and
@@ -50,13 +28,17 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
   in-place and combining pre/post processing into Stockham kernels.
 - Added radix-17.
 
-### Added
-- Added new kernel generator for select fused-2D transforms.
-
 ### Fixed
+- Fixed a few validation failures of even-length R2C inplace. 2D, 3D cubics sizes such as
+  100^2 (or ^3), 200^2 (or ^3), 256^2 (or ^3)...etc. We don't combine the three kernels
+  (stockham-r2c-transpose). We only combine two kernels (r2c-transpose) instead.
 - Improved large 1D transform decompositions.
 
-## [rocFFT 1.0.12 for ROCm 4.3.0]
+### Added
+- Added support for Windows 10 as a build target.
+- Added new kernel generator for select fused-2D transforms.
+
+## rocFFT 1.0.12 for ROCm 4.3.0
 
 ### Changed
   Re-split device code into single-precision, double-precision, and miscellaneous kernels.
@@ -86,7 +68,7 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
 - Fixed potential crashes in 3D transforms with unusual strides, for
   SBCC-optimized sizes.
 
-## [rocFFT 1.0.11 for ROCm 4.2.0]
+## rocFFT 1.0.11 for ROCm 4.2.0
 
 ### Changed
   Move device code into main library.
@@ -107,7 +89,7 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
 - Fixed potential crashes when executing transforms on multiple devices.
   (https://github.com/ROCmSoftwarePlatform/rocFFT/issues/310)
 
-## [rocFFT 1.0.10 for ROCm 4.1.0]
+## rocFFT 1.0.10 for ROCm 4.1.0
 
 ### Added
 - Explicitly specify MAX_THREADS_PER_BLOCK through _\_launch\_bounds\_ for all
@@ -133,7 +115,7 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
 ### Fixed
 - Fixed 4x4x8192 accuracy failure.
 
-## [rocFFT 1.0.8 for ROCm 3.10.0]
+## rocFFT 1.0.8 for ROCm 3.10.0
 
 ### Optimizations
 - Optimized 1D length 10000 C2C case.
@@ -145,7 +127,7 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
 - Fixed correctness of SBCC/SBRC kernels with non-unit strides.
 - Fixed fused C2R kernel when a Bluestein transform follows it.
 
-## [rocFFT 1.0.7 for ROCm 3.9.0]
+## rocFFT 1.0.7 for ROCm 3.9.0
 
 ### Optimizations
 - New R2C and C2R fused kernels to combine pre/post processing steps with transpose.
@@ -160,7 +142,7 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
 - Fixed 2D C2R transform with length 1 on one dimension.
 - Fixed potential thread unsafety in logging.
 
-## [rocFFT 1.0.6 for ROCm 3.8.0]
+## rocFFT 1.0.6 for ROCm 3.8.0
 
 ### Optimizations
 - Improved performance of 1D batch-paired R2C transforms of odd length.
@@ -175,7 +157,7 @@ Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://ro
 ### Fixed
 - Fixed correctness of certain large 2D sizes.
 
-## [rocFFT 1.0.5 for ROCM 3.7.0]
+## rocFFT 1.0.5 for ROCM 3.7.0
 
 ### Optimizations
 - Optimized C2C power-of-2 middle sizes.
