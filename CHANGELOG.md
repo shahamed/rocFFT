@@ -2,7 +2,7 @@
 
 Full documentation for rocFFT is available at [rocfft.readthedocs.io](https://rocfft.readthedocs.io/en/latest/).
 
-## (Unreleased) rocFFT 1.0.19
+## rocFFT 1.0.19 for ROCm 5.4.0
 
 ### Optimizations
 - Optimized some strided large 1D plans.
