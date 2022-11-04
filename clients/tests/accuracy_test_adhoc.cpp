@@ -46,7 +46,8 @@ std::vector<std::vector<size_t>> adhoc_sizes = {
     // or
     // L1D_TRTRT (T + L1D_CC + STOCKHAM_BL_CC + STOCHMAM_BL_RC + T + STOCKHAM + T)
     // for lengthBlue > 4096^2.
-    {196597, 25165813},
+    {196597},
+    {25165813},
 
     // TILE_UNALIGNED type of SBRC 3D ERC
     {98, 98, 98},
