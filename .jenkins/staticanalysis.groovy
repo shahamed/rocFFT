@@ -13,13 +13,6 @@ def runCompileCommand(platform, project, jobName, boolean debug=false)
 {
     project.paths.construct_build_prefix()
 
-    def command = """#!/usr/bin/env bash
-            set -x
-            ${project.paths.project_build_prefix}/docs/run_doc.sh
-            """
-
-    platform.runCommand(this, command)
-
     def yapfCommand = """#!/usr/bin/env bash
                          set -x
                          cd ${project.paths.project_build_prefix}
@@ -30,14 +23,6 @@ def runCompileCommand(platform, project, jobName, boolean debug=false)
                       """
 
     platform.runCommand(this, yapfCommand)
-    
-    publishHTML([allowMissing: false,
-                alwaysLinkToLastBuild: false,
-                keepAll: false,
-                reportDir: "${project.paths.project_build_prefix}/docs/source/_build/html",
-                reportFiles: "index.html",
-                reportName: "Documentation",
-                reportTitles: "Documentation"])
 }
 
 def runCI =
