@@ -111,7 +111,3 @@ This section provides all the enumerations used.
 .. doxygenenum:: rocfft_array_type
 
 .. comment doxygenenum:: rocfft_execution_mode
-
-
-
-
