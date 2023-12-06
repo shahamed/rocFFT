@@ -165,6 +165,12 @@ struct rocfft_plan_t
     // before we start creating any child nodes from the root plan.
     void sort();
 
+    static bool is_contiguous(const std::vector<size_t>& length,
+                              const std::vector<size_t>& stride,
+                              size_t                     dist);
+    bool        is_contiguous_input();
+    bool        is_contiguous_output();
+
     // Add a multi-plan item for execution.  Returns the index of the
     // new item in the overall multi-GPU plan.  Also provide a
     // vector of indexes of other items that must complete before this
@@ -231,13 +237,13 @@ private:
                                             rocfft_array_type                  arrayType,
                                             const std::vector<size_t>&         field_length,
                                             const std::vector<size_t>&         field_stride,
-                                            void*                              output,
+                                            BufferPtr                          output,
                                             const std::vector<size_t>&         antecedents,
                                             size_t                             elem_size);
 
     // scatter a field on the current device to a set of bricks
     std::vector<size_t> ScatterFieldToBricks(int                                currentDevice,
-                                             void*                              input,
+                                             BufferPtr                          input,
                                              rocfft_precision                   precision,
                                              rocfft_array_type                  arrayType,
                                              const std::vector<size_t>&         field_length,
