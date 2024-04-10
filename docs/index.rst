@@ -15,17 +15,17 @@ The code is open and hosted here: https://github.com/ROCmSoftwarePlatform/rocFFT
 
 The rocFFT documentation is structured as follows:
 
-.. card:: :ref:`Conceptual`
+.. card:: Conceptual
 
   * :ref:`what-is-rocfft`
 
-.. card:: :ref:`How-To`
+.. card:: How To
 
   * :ref:`working-with-rocfft`
   * :ref:`load-store-callbacks`
   * :ref:`runtime-compilation`
 
-.. card:: :ref:`API Reference`
+.. card:: API Reference
 
   * :ref:`api-usage`
   * :ref:`api-reference`
