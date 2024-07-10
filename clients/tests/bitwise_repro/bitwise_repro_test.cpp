@@ -51,18 +51,7 @@ TEST(bitwise_repro_test, compare_precisions)
         GTEST_SKIP();
     }
 
-    try
-    {
-        bitwise_repro(params_1, params_2);
-    }
-    catch(ROCFFT_GTEST_SKIP& e)
-    {
-        GTEST_SKIP() << e.msg.str();
-    }
-    catch(ROCFFT_GTEST_FAIL& e)
-    {
-        GTEST_FAIL() << e.msg.str();
-    }
+    bitwise_repro(params_1, params_2);
     SUCCEED();
 }
 
@@ -86,18 +75,7 @@ TEST(bitwise_repro_test, compare_lengths)
         GTEST_SKIP();
     }
 
-    try
-    {
-        bitwise_repro(params_1, params_2);
-    }
-    catch(ROCFFT_GTEST_SKIP& e)
-    {
-        GTEST_SKIP() << e.msg.str();
-    }
-    catch(ROCFFT_GTEST_FAIL& e)
-    {
-        GTEST_FAIL() << e.msg.str();
-    }
+    bitwise_repro(params_1, params_2);
     SUCCEED();
 }
 
@@ -121,18 +99,7 @@ TEST(bitwise_repro_test, compare_transform_types)
         GTEST_SKIP();
     }
 
-    try
-    {
-        bitwise_repro(params_1, params_2);
-    }
-    catch(ROCFFT_GTEST_SKIP& e)
-    {
-        GTEST_SKIP() << e.msg.str();
-    }
-    catch(ROCFFT_GTEST_FAIL& e)
-    {
-        GTEST_FAIL() << e.msg.str();
-    }
+    bitwise_repro(params_1, params_2);
     SUCCEED();
 }
 
@@ -161,18 +128,7 @@ TEST_P(bitwise_repro_test, compare_to_reference)
         GTEST_SKIP();
     }
 
-    try
-    {
-        bitwise_repro(params);
-    }
-    catch(ROCFFT_GTEST_SKIP& e)
-    {
-        GTEST_SKIP() << e.msg.str();
-    }
-    catch(ROCFFT_GTEST_FAIL& e)
-    {
-        GTEST_FAIL() << e.msg.str();
-    }
+    bitwise_repro(params);
     SUCCEED();
 }
 
