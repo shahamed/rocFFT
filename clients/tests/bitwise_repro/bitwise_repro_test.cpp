@@ -23,9 +23,9 @@
 #include <stdexcept>
 #include <vector>
 
+#include "../../../shared/params_gen.h"
 #include "../../../shared/rocfft_params.h"
 #include "../accuracy_tests_range.h"
-#include "../params_gen.h"
 #include "bitwise_repro_test.h"
 
 using ::testing::ValuesIn;
@@ -51,7 +51,18 @@ TEST(bitwise_repro_test, compare_precisions)
         GTEST_SKIP();
     }
 
-    bitwise_repro(params_1, params_2);
+    try
+    {
+        bitwise_repro(params_1, params_2);
+    }
+    catch(ROCFFT_GTEST_SKIP& e)
+    {
+        GTEST_SKIP() << e.msg.str();
+    }
+    catch(ROCFFT_GTEST_FAIL& e)
+    {
+        GTEST_FAIL() << e.msg.str();
+    }
     SUCCEED();
 }
 
@@ -75,7 +86,18 @@ TEST(bitwise_repro_test, compare_lengths)
         GTEST_SKIP();
     }
 
-    bitwise_repro(params_1, params_2);
+    try
+    {
+        bitwise_repro(params_1, params_2);
+    }
+    catch(ROCFFT_GTEST_SKIP& e)
+    {
+        GTEST_SKIP() << e.msg.str();
+    }
+    catch(ROCFFT_GTEST_FAIL& e)
+    {
+        GTEST_FAIL() << e.msg.str();
+    }
     SUCCEED();
 }
 
@@ -99,7 +121,18 @@ TEST(bitwise_repro_test, compare_transform_types)
         GTEST_SKIP();
     }
 
-    bitwise_repro(params_1, params_2);
+    try
+    {
+        bitwise_repro(params_1, params_2);
+    }
+    catch(ROCFFT_GTEST_SKIP& e)
+    {
+        GTEST_SKIP() << e.msg.str();
+    }
+    catch(ROCFFT_GTEST_FAIL& e)
+    {
+        GTEST_FAIL() << e.msg.str();
+    }
     SUCCEED();
 }
 
@@ -128,7 +161,18 @@ TEST_P(bitwise_repro_test, compare_to_reference)
         GTEST_SKIP();
     }
 
-    bitwise_repro(params);
+    try
+    {
+        bitwise_repro(params);
+    }
+    catch(ROCFFT_GTEST_SKIP& e)
+    {
+        GTEST_SKIP() << e.msg.str();
+    }
+    catch(ROCFFT_GTEST_FAIL& e)
+    {
+        GTEST_FAIL() << e.msg.str();
+    }
     SUCCEED();
 }
 
