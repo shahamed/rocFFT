@@ -276,7 +276,10 @@ input/output buffers are :math:`2N` elements long, even if only :math:`N` even-i
 elements are being transformed.  No more than :math:`2N` elements of temporary data will be written
 to the buffers during the transform.
 
-These policies apply to both input and output buffers, because :ref:`not in-place transforms may overwrite input data<resultplacement>`.
+These policies apply to both input and output buffers, because :ref:`not in-place transforms may overwrite input data
+<resultplacement>`.
+
+.. _input_output_fields:
 
 Input and Output Fields
 =======================
@@ -353,8 +356,10 @@ The workflow for fields is as follows:
    added to the field (via calls to :cpp:func:`rocfft_field_add_brick`), and
    must point to memory on the device that was specified at that time.
 
-   For in-place transforms, only pass input pointers and do not pass output
-   pointers.
+   .. important::
+
+   For in-place transforms, pass a nonempty array of input pointers and
+   an empty array of output pointers.
 
 Transforms of real data
 =======================
